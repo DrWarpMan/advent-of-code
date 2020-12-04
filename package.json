@@ -1,0 +1,17 @@
+{
+    "name": "advent-of-code",
+    "version": "1.0.0",
+    "description": "Advent of Code",
+    "main": "index.js",
+    "scripts": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DrWarpMan/advent-of-code.git"
+    },
+    "author": "DrWarpMan",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/DrWarpMan/advent-of-code/issues"
+    },
+    "homepage": "https://github.com/DrWarpMan/advent-of-code#readme"
+}
