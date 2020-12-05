@@ -65,15 +65,9 @@ function launch(data) {
                     passport[ppField] = ppValue;
             });
 
-            if (Object.keys(passport).length === required.length) {
-                if (!(Object.keys(passport).some(ppField => {
-                        const ppValue = passport[ppField];
-                        const valid = isValid(ppField, ppValue);
-                        return !valid;
-                    }))) {
+            if (Object.keys(passport).length === required.length)
+                if (!(Object.keys(passport).some(ppField => !isValid(ppField, passport[ppField]))))
                     result++;
-                }
-            }
         });
 
         return result;
