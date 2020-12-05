@@ -21,8 +21,8 @@ function launch(data) {
             const row = i.substring(0, 7);
             const column = i.substring(7);
 
-            rowPos = calcPos("row", row);
-            columnPos = calcPos("column", column);
+            rowPos = calcSeat("row", row);
+            columnPos = calcSeat("column", column);
             const seatID = rowPos * 8 + columnPos;
 
             if (result < seatID)
@@ -35,17 +35,45 @@ function launch(data) {
     }
 
     function partTwo() {
-        let result = 0;
+        let result = false;
+        let allSeatIDs = [];
+
+        data.forEach(i => {
+            const row = i.substring(0, 7);
+            const column = i.substring(7);
+
+            rowPos = calcSeat("row", row);
+            columnPos = calcSeat("column", column);
+            const seatID = rowPos * 8 + columnPos;
+
+            allSeatIDs.push(seatID);
+        });
+
+        allSeatIDs.sort((a, b) => a - b);
+
+        allSeatIDs.forEach((seatID, index) => {
+            if (result === false) {
+                const prev = allSeatIDs[index - 1];
+                const next = allSeatIDs[index + 1];
+
+                if (next && seatID + 1 !== next)
+                    result = seatID + 1;
+                if (prev && seatID - 1 !== prev)
+                    result = seatID - 1;
+            }
+        });
+
+        if (result === false) throw new Error("Prolly something bad happened..");
 
         return result;
     }
 
-    function calcPos(type, chars) {
+    function calcSeat(type, chars) {
         let top = (type === "row") ? maxRow : maxColumn;
         let bottom = 0;
         let final = false;
 
-        chars.split("").forEach((char, index) => {
+        chars.split("").forEach(char => {
             if (char === "F" || char === "L") {
                 const half = (top - bottom + 1) / 2;
                 const middle = top - half;
