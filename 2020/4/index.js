@@ -95,7 +95,7 @@ function launch(data) {
                     return (len >= 59 && len <= 76);
                 else return false;
             case "hcl":
-                return (value.startsWith("#") && value.length === 7 && /^([abcdef]|[0-9])+$/.test(value.substring(1)));
+                return (value.startsWith("#") && value.length === 7 && /^([abcdef0-9])+$/.test(value.substring(1)));
             case "ecl":
                 return (eyeColors.includes(value));
             case "pid":
