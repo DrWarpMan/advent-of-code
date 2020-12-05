@@ -12,7 +12,7 @@ function launch(data) {
     data = data.split("\n").map(i => parseInt(i));
 
     function partOne() {
-        result = false;
+        let result = false;
 
         data.forEach(num1 => {
             data.forEach(num2 => {
@@ -25,7 +25,7 @@ function launch(data) {
     }
 
     function partTwo() {
-        result = false;
+        let result = false;
 
         data.forEach(num1 => {
             data.forEach(num2 => {
