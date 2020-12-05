@@ -74,16 +74,15 @@ function launch(data) {
         let final = false;
 
         chars.split("").forEach(char => {
+            const half = (top - bottom + 1) / 2;
             if (char === "F" || char === "L") {
-                const half = (top - bottom + 1) / 2;
                 const middle = top - half;
-                bottom = bottom;
                 top = middle;
+                //bottom = bottom;
             } else if (char === "B" || char === "R") {
-                const half = (top - bottom + 1) / 2;
                 const middle = bottom + half;
-                top = top;
                 bottom = middle;
+                //top = top;
             } else throw new Error("Invalid char!");
         });
 
