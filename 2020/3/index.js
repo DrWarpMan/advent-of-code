@@ -24,7 +24,7 @@ function launch(data) {
             else if (item === square)
                 squares++;
             else throw new Error("Invalid item!");
-        }
+        };
 
         const addX = x;
         const addY = y;
@@ -35,12 +35,10 @@ function launch(data) {
         let curY = 0;
 
         while (curY < lines) {
-            let item = data[curY][curX];
-
-            if (curX >= lineLength) {
+            if (curX >= lineLength)
                 curX -= lineLength;
-                item = data[curY][curX];
-            }
+
+            let item = data[curY][curX];
 
             handle(item);
 
