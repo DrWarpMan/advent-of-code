@@ -65,7 +65,7 @@ function launch(data) {
             calcTrees(3, 1) *
             calcTrees(5, 1) *
             calcTrees(7, 1) *
-            calcTrees(1, 2)
+            calcTrees(1, 2);
 
         return result;
     }
